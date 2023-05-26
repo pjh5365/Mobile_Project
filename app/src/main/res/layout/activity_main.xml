@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:text="로그인"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="70dp"
+        android:textSize="35dp"
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"/>
+    <EditText
+        android:id="@+id/loginID"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:hint="ID"
+        android:background="@drawable/main_edit_text"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:id="@+id/loginPW"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:hint="Password"
+        android:background="@drawable/main_edit_text"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" >
+        <Button
+            android:id="@+id/BtnLogin"
+            android:layout_width="125dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/main_button"
+            android:textSize="22dp"
+            android:text="로그인"/>
+
+        <Button
+            android:id="@+id/BtnJoin"
+            android:layout_width="125dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/main_button"
+            android:textSize="22dp"
+            android:text="회원가입"/>
+
+    </LinearLayout>
+</LinearLayout>
