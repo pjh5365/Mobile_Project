@@ -19,7 +19,7 @@
 <!--            android:orientation="vertical" >-->
 
             <EditText
-                android:id="@+id/title"
+                android:id="@+id/text_title"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_margin="10dp"
@@ -29,7 +29,7 @@
                 android:layout_gravity="center" />
 
             <EditText
-                android:id="@+id/content"
+                android:id="@+id/test_content"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:layout_margin="10dp"
