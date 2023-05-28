@@ -25,7 +25,7 @@ public class JoinActivity extends AppCompatActivity {
     EditText loginName, loginID, loginPW;
     Button btnJoin;
 
-    String name, id, passwd;
+    String name, userID, passwd;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 name = loginName.getText().toString();
-                id = loginID.getText().toString();
+                userID = loginID.getText().toString();
                 passwd = loginPW.getText().toString();
 
                 sendRequest();  //회원가입 요청
@@ -51,7 +51,7 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     public void sendRequest() {
-        String url = "userURL";    //작동해야하는 php주소
+        String url = "";    //작동해야하는 php주소
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -78,7 +78,7 @@ public class JoinActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parmas = new HashMap<String, String>();
                 parmas.put("userName", name);   //보낼 이름 해쉬맵에 넣기
-                parmas.put("userID", id);   //보낼 아이디 해쉬맵에 넣기
+                parmas.put("userID", userID);   //보낼 아이디 해쉬맵에 넣기
                 parmas.put("userPW", passwd);   //보낼 비밀번호 해쉬맵에 넣기
                 return parmas;
             }

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class BoardListActivity extends AppCompatActivity {
 
     Button btnWrite;
-    String id;
+    String userID;
     ListView listView;
     ArrayList<ListViewItem> list;
     ListViewAdapter adapter;
@@ -36,23 +36,23 @@ public class BoardListActivity extends AppCompatActivity {
         setContentView(R.layout.board_list);
         //로그인에서 ID을 전달받음
         Intent intent = getIntent();
-        id = intent.getStringExtra("userID");
+        userID = intent.getStringExtra("userID");
         btnWrite = (Button) findViewById(R.id.BtnWrite);
         list = new ArrayList<>();
         adapter = new ListViewAdapter(this, list);
         listView = (ListView) findViewById(R.id.listView);
 
         sendRequest();
-        System.out.println("함수종료");
-        for(int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getListNum());
-            adapter.addItem(list.get(i));
-        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(getApplicationContext(), ReadActivity.class);
+                intent.putExtra("userID", userID);  //세션을 유지하는 대신 아이디 전달
+                //listNum 으로 게시물을 검색하기 위해 값을 넘겨줌
+                ListViewItem item = (ListViewItem) adapter.getItem(position);
+                intent.putExtra("listNum", item.getListNum());
+                startActivity(intent);
             }
         });
 
@@ -60,13 +60,13 @@ public class BoardListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
-                intent.putExtra("userID", id);  //세션을 유지하는 대신 아이디 전달
+                intent.putExtra("userID", userID);  //세션을 유지하는 대신 아이디 전달
                 startActivity(intent);
             }
         });
     }
     public void sendRequest() {
-        String url = "userURL";    //작동해야하는 php주소
+        String url = "";    //작동해야하는 php주소
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override

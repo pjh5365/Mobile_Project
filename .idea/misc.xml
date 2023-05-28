@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2865" />
         <entry key="app/src/main/res/drawable/edittext.xml" value="0.139" />
+        <entry key="app/src/main/res/drawable/free_icon_home_icon_63988__1_.xml" value="0.216" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.328" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.139" />
         <entry key="app/src/main/res/drawable/main_button.xml" value="0.2865" />
         <entry key="app/src/main/res/drawable/main_edit_text.xml" value="0.2865" />
@@ -16,6 +18,7 @@
         <entry key="app/src/main/res/layout/update.xml" value="0.1983695652173913" />
         <entry key="app/src/main/res/layout/update_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/write.xml" value="0.1828774062816616" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>

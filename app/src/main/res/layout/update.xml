@@ -13,7 +13,7 @@
         android:layout_height="match_parent" >
 
         <EditText
-            android:id="@+id/title"
+            android:id="@+id/edittext_title_update"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="10dp"
@@ -22,7 +22,7 @@
             android:layout_gravity="center" />
 
         <EditText
-            android:id="@+id/content"
+            android:id="@+id/edittext_content_update"
             android:layout_width="match_parent"
             android:layout_height="400dp"
             android:layout_margin="10dp"
@@ -32,7 +32,7 @@
             android:layout_gravity="center" />
 
         <Button
-            android:id="@+id/BtnUpdate"
+            android:id="@+id/BtnUpdateAction"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

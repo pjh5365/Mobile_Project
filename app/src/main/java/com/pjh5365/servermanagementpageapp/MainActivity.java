@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     EditText loginID, loginPW;
     Button btnLogin, btnJoin;
 
-    String id, passwd;
+    String userID, passwd;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {    //로그인 버튼 클릭했을때
             @Override
             public void onClick(View v) {
-                id = loginID.getText().toString().trim();   //아이디 공백없이 가져오기
+                userID = loginID.getText().toString().trim();   //아이디 공백없이 가져오기
                 passwd = loginPW.getText().toString().trim();   //비밀번호 공백없이 가져오기
 
                 sendRequest();  //로그인 요청
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendRequest() {
-        String url = "userURL";    //작동해야하는 php주소
+        String url = "";    //작동해야하는 php주소
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(response.equals("1")) {  //DB에 정보가 있다면 서버에서 1을 반환함
                     Intent intent = new Intent(getApplicationContext(), BoardListActivity.class);
-                    intent.putExtra("userID", id);  //세션을 유지하는 대신 아이디 전달
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);  //액티비티 스택제거
+                    intent.putExtra("userID", userID);  //세션을 유지하는 대신 아이디 전달
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "로그인에 성공 했습니다.", Toast.LENGTH_SHORT).show();
                 }
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parmas = new HashMap<String, String>();
-                parmas.put("userID", id);   //보낼 아이디 해쉬맵에 넣기
+                parmas.put("userID", userID);   //보낼 아이디 해쉬맵에 넣기
                 parmas.put("userPW", passwd);   //보낼 비밀번호 해쉬맵에 넣기
                 return parmas;
             }
