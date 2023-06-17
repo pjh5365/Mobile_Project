@@ -44,11 +44,9 @@ public class ListViewAdapter extends BaseAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view = layoutInflater.inflate(R.layout.listview_item, null);
 
-        TextView listNum = (TextView) view.findViewById(R.id.tv_listNum);
         TextView title = (TextView) view.findViewById(R.id.tv_title);
         TextView userID = (TextView) view.findViewById(R.id.tv_userID);
 
-        listNum.setText(arrayList.get(position).getListNum());
         title.setText(arrayList.get(position).getTitle());
         userID.setText(arrayList.get(position).getUserID());
 
